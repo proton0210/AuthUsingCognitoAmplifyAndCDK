@@ -5,4 +5,3 @@ import { AuthStack } from "../stacks/auth-stack";
 
 const app = new cdk.App();
 const authStack = new AuthStack(app, "AuthStack");
-

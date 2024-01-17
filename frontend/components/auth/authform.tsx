@@ -61,7 +61,14 @@ export const AuthForm: React.FC<AuthFormProps> = ({ type }) => {
       try {
         setIsLoading(true);
         const { name, email, password } = data as z.infer<typeof signupSchema>;
-        await handleSignUp({ name, email, password });
+        const result = await handleSignUp({ name, email, password });
+        if (result) {
+          return toast({
+            title: "Success",
+            description:
+              "Account created successfully,Click on Verify your account",
+          });
+        }
       } catch (error: any) {
         console.log(error);
         return toast({
